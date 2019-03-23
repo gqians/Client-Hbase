@@ -11,17 +11,25 @@ module.exports = {
   resolve: {
     extensions: [' ', '.js', '.jsx'], 
     alias: {
-     // layer: __dirname + '/node_modules/layui-src/src/layer.js',
-     // "layer.css": __dirname + '/node_modules/layui-src/src/css/layui.css'
+      //'jquery': 'javascripts/layui/lay/modules/jquery.js',
+      //'jQuery': 'javascripts/layui/lay/modules/jquery.js',
+      //'layui': 'javascripts/layui',
+      //'layui-modules': 'javascripts/layui/lay/modules'
     }
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
-      jQury: "jquery",
+      jQuery: "jquery",
       "window.jQuery":"jquery"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
+  devServer: {
+    contentBase: 'views/main.ejs',
+    inline: true,
+    hot: true
+  },
   module: {
     rules: [
       {
@@ -45,14 +53,14 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,//图片打包
         loader: 'url-loader',
         options: {
-          limit: 10000
+          limit: 20000
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,//字体打包
         loader: 'url-loader',
         options: {
-          limit: 10000
+          limit: 20000
         }
       }
     ]

@@ -61,19 +61,6 @@ app.use(function (err, req, res, next) {
     });
 });
 
-//let client = hbase({
-//    host:'localhost',
-//    port:4321
-//});
-//client.tables((error, tables) => {
-//  console.info(tables)
-//})
-//client
-//  .table('study:company1')
-//  .row('00100')
-//  .get('detail', (error, value) => {
-//    console.info(value)
-//  })
 app.set('port', process.env.PORT || 3001);
 
 const server = app.listen(app.get('port'), function () {
