@@ -4,43 +4,45 @@
       <div class="layui-logo">MyHBase</div>
       <!-- 头部区域（可配合layui已有的水平导航） -->
       <ul class="layui-nav layui-layout-left">
-        <li class="layui-nav-item">
-          <a href="">控制台</a>
+        <li class="layui-nav-item" >
+          <a id="con">连接数据库</a>
         </li>
         <li class="layui-nav-item">
-          <a href="">商品管理</a>
+          <a href="">数据库详情</a>
         </li>
         <li class="layui-nav-item">
-          <a href="">用户</a>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">其它系统</a>
+          <a href="">表操作</a>
           <dl class="layui-nav-child">
             <dd>
-              <a href="">邮件管理</a>
+              <a href="">信息</a>
             </dd>
             <dd>
-              <a href="">消息管理</a>
+              <a href="">添加表</a>
             </dd>
             <dd>
-              <a href="">授权管理</a>
+              <a href="">删除表</a>
             </dd>
           </dl>
         </li>
-      </ul>
+        <li class="layui-nav-item">
+          <a href="">数据操作</a>  
+          <dl class="layui-nav-child">
+            <dd>
+              <a href="">添加数据</a>
+            </dd>
+            <dd>
+              <a href="">删除数据</a>
+            </dd>
+            <dd>
+              <a href="">过滤数据</a>
+            </dd>
+          </dl>
+        </li>
+        
+      </ul> 
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
-          <dl class="layui-nav-child">
-            <dd>
-              <a href="">基本资料</a>
-            </dd>
-            <dd>
-              <a href="">安全设置</a>
-            </dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="">退了</a>
+          <a href="">退出连接</a>
         </li>
       </ul>
     </div>
@@ -56,12 +58,12 @@
 
     <div class="layui-body">
       <!-- 内容主体区域 -->
-      <div style="padding: 15px;">内容主体区域</div>
+      <div style="padding: 15px;">请连接数据库</div>
     </div>
 
     <div class="layui-footer">
       <!-- 底部固定区域 -->
-      © layui.com - 底部固定区域
+      © QDS出品
     </div>
   </div>
 </body>

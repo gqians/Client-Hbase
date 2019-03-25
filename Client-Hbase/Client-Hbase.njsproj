@@ -47,8 +47,12 @@
     <Compile Include="public\javascripts\zTree_v3\js\jquery.ztree.exedit.min.js" />
     <Compile Include="public\javascripts\zTree_v3\js\jquery.ztree.exhide.js" />
     <Compile Include="public\javascripts\zTree_v3\js\jquery.ztree.exhide.min.js" />
+    <Compile Include="routes\api\connect.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
+    <Compile Include="src\connect.js" />
     <Compile Include="src\index.js">
       <SubType>Code</SubType>
     </Compile>
@@ -725,6 +729,7 @@
     <Folder Include="public\javascripts\zTree_v3\demo\en\super\" />
     <Folder Include="public\javascripts\zTree_v3\demo\js\" />
     <Folder Include="public\javascripts\zTree_v3\js\" />
+    <Folder Include="routes\api\" />
     <Folder Include="src\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
