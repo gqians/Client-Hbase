@@ -1,5 +1,6 @@
 require('../public/javascripts/layui/css/layui.css')
 require('../public/javascripts/layui/layui.js')
+import tree from './tree'
 //添加连接窗口
 
 export default function connect(id) {
@@ -18,7 +19,7 @@ export default function connect(id) {
           return response.json();
        })
           .then(function (myJson) {
-            console.log(myJson);
+            dealNode(myJson);
        });
        layer.close(index);
       });
@@ -26,3 +27,25 @@ export default function connect(id) {
   });
   
 };
+function dealNode(OriNode) {
+  let FinNode = [];
+  
+  for (let node of OriNode) {
+    window.flag = 0;
+    let FinNode_1 = {};
+    let name = (node.name).split(":");
+    for (let i=0; i < FinNode.length; i++) {
+      if (FinNode[i].name == name[0]) {
+        FinNode[i].children.push({ name: name[1] });
+        window.flag = 1;
+      }
+    }
+    if (window.flag == 0) {
+      FinNode_1.name = name[0];
+      FinNode_1.open = false;
+      FinNode_1.children = [{ name: name[1]}];
+      FinNode.push(FinNode_1);
+    }
+  }
+  tree(FinNode);
+}

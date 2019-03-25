@@ -5,8 +5,8 @@ let router = express.Router();
 let port;
 router.get('/', function (req, res) {
   port = req.query.port;
-  console.info(init(port));
-  init(port, res);
+  //console.info(init(port));
+  init(port,res);
 })
 
 function init(newport,res) {
