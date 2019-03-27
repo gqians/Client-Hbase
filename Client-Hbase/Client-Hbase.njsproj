@@ -47,7 +47,10 @@
     <Compile Include="public\javascripts\zTree_v3\js\jquery.ztree.exedit.min.js" />
     <Compile Include="public\javascripts\zTree_v3\js\jquery.ztree.exhide.js" />
     <Compile Include="public\javascripts\zTree_v3\js\jquery.ztree.exhide.min.js" />
-    <Compile Include="routes\api\connect.js">
+    <Compile Include="routes\api\server-connect.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\api\server-scan.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes\index.js" />
@@ -80,6 +83,7 @@
     <Compile Include="src\tree.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\scan.js" />
     <Compile Include="webpack.config.js" />
     <Content Include="package.json" />
     <Content Include="public\javascripts\0208023e7b4a46473764cc8a59eef107.eot" />
@@ -596,8 +600,6 @@
     <Content Include="public\javascripts\zTree_v3\log v3.x.txt" />
     <Content Include="public\javascripts\zTree_v3\README.md" />
     <Content Include="public\stylesheets\main.css" />
-    <Content Include="src\zTreeStandard.gif" />
-    <Content Include="src\zTreeStandard.png" />
     <Content Include="README.md" />
     <Content Include="public\javascripts\layui\css\layui.css" />
     <Content Include="public\javascripts\layui\css\layui.mobile.css" />

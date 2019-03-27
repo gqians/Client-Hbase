@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 //路由
 const routes = require('./routes/index');
 const users = require('./routes/users');
-const connect = require('./routes/api/connect');
+const connect = require('./routes/api/server-connect');
+const scan = require('./routes/api/server-scan');
 const app = express();
 
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api/connect', connect);
+app.use('/api/scan', scan);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     const err = new Error('Not Found');

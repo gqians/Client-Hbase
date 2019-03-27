@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
   //console.info(init(port));
   init(port,res);
 })
-
+//初始化，获取表及其命名空间
 function init(newport,res) {
   let client = hbase({
     host: 'localhost',
