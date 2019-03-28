@@ -80,6 +80,9 @@
     <Compile Include="public\javascripts\layui\lay\modules\tree.js" />
     <Compile Include="public\javascripts\layui\lay\modules\upload.js" />
     <Compile Include="public\javascripts\layui\lay\modules\util.js" />
+    <Compile Include="src\translate.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\tree.js">
       <SubType>Code</SubType>
     </Compile>

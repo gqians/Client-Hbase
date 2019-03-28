@@ -6,7 +6,7 @@ router.get('/', function (req, res) {
   let start = req.query.start;
   let stop = req.query.stop;
   let filter = req.query.filter;
-  let tablename = req.query.tablname;
+  let tablename = req.query.tablename;
   //console.info(init(port));
   scan(port, start, stop, filter, tablename, res);
 })
@@ -19,13 +19,11 @@ function scan(port, start, stop, filter, tablename, res) {
     .table(tablename)
     .scan({
       startRow: start,
-      stopRow: stop,
+      endRow: stop,
       filter: {
-        "op": "MUST_PASS_ALL", "type": "FilterList", "filters": [{
           "op": "EQUAL",
-          "type": "RowFilter",
-          "comparator": { "value": filter, "type": "RegexStringComparator" }
-        }]
+        "type": "RowFilter",
+        "comparator": { "value": filter, "type": "RegexStringComparator" }
       },
       maxVersions: 1
     })
@@ -34,11 +32,12 @@ function scan(port, start, stop, filter, tablename, res) {
     while (chunk = scanner.read())
       rows.push(chunk)
   })
-  //  scanner.on('error',err =>
-  //  throw(err)
-  //)
-  scanner.on('end', () =>
-    console.info(rows)
-  )
+  scanner.on('error', function (err) {
+      console.log(err);
+  });
+  scanner.on('end', function () {
+    res.json(rows);
+    console.log(rows);
+  });
 }
 module.exports = router;

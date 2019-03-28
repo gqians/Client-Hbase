@@ -1,6 +1,6 @@
 require('../public/javascripts/zTree_v3/css/zTreeStyle/zTreeStyle.css')
 require('../public/javascripts/zTree_v3/js/jquery.ztree.core.min.js')
-
+import scan from './scan.js'
 
 export default function tree(zNodes) {
   let zTreeObj;
@@ -25,8 +25,10 @@ export default function tree(zNodes) {
       , shade: 0.6 //遮罩透明度
       , maxmin: false //允许全屏最小化
       , anim: 1 //0-6的动画形式，-1不开启
-      , content: '<form class="layui-form"><div class="layui-form-item"><label class="layui-form-label" > start</label><div class="layui-input-block"><input id="start" type="text" name="title" required lay-verify="required" placeholder="请输入StartRow" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label" > stop</label><div class="layui-input-block"><input type="text" id="stop" name="title" required lay-verify="required" placeholder="请输入StopRow" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label" > 过滤条件</label><div class="layui-input-block"><input type="text" id="filter" name="title" required lay-verify="required" placeholder="暂时只支持行键正则表达式" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><div class= "layui-input-block" ><span class="layui-btn" id="submit">确定</span><button type="reset" class="layui-btn layui-btn-primary">重置</button></div></div></form>'
-    });    
+      , content: '<form class="layui-form"><div class="layui-form-item"><label class="layui-form-label" > start</label><div class="layui-input-block"><input id="start" type="text" name="title" required lay-verify="required" placeholder="请输入StartRow" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label" >end</label><div class="layui-input-block"><input type="text" id="stop" name="title" required lay-verify="required" placeholder="请输入EndRow" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label" > 过滤条件</label><div class="layui-input-block"><input type="text" id="filter" name="title" required lay-verify="required" placeholder="暂时只支持行键正则表达式" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><div class= "layui-input-block"><span class="layui-btn" id="submit">确定</span><button type="reset" class="layui-btn layui-btn-primary">重置</button></div></div></form>'
+    });
+    scan();
+    
   }
   function zTreeOnClick(event, treeId, treeNode) {
     if (treeNode.isParent == false) {
