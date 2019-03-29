@@ -35,7 +35,7 @@ function scan(port, start, stop, filter, tablename, res) {
   scanner.on('error', function (err) {
       console.log(err);
   });
-  scanner.on('end', function () {
+  scanner.on('end', function () { 
     res.json(rows);
     console.log(rows);
   });

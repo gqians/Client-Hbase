@@ -1,26 +1,47 @@
 export default function scan(json) {
+  let myjson = processingdata(json);
+  let json0 = myjson[0];
+  let col = [];
+  for(let key in json0) {
+    col.push({ field: key, title: key, width: 150, sort: true})
+  }
+  
   layui.use('table', function () {
     var table = layui.table;
 
     //第一个实例
     table.render({
-      elem: '#demo'
-      , height: 312
-      , url: '/demo/table/user/' //数据接口
+      elem: '#table'
+      , height: 700
+      ,data:myjson
       , page: true //开启分页
-      , cols: [[ //表头
-        { field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' }
-        , { field: 'username', title: '用户名', width: 80 }
-        , { field: 'sex', title: '性别', width: 80, sort: true }
-        , { field: 'city', title: '城市', width: 80 }
-        , { field: 'sign', title: '签名', width: 177 }
-        , { field: 'experience', title: '积分', width: 80, sort: true }
-        , { field: 'score', title: '评分', width: 80, sort: true }
-        , { field: 'classify', title: '职业', width: 80 }
-        , { field: 'wealth', title: '财富', width: 135, sort: true }
-      ]]
+      , cols: [col]
     });
 
   });
 
+}
+function processingdata(jsons) {
+  let newJson=[]
+  for (let json of jsons) {
+    window.flag1 = 0;//定义flag判断key是否一致
+    for (let njson of newJson) {
+      if (json.key == njson.key) {//若key一致，则添加到一个json对象中
+        let key = json.column;
+        let val = json.$;
+        njson[key] = val;
+        window.flag1 = 1;
+      }
+    }
+    if (window.flag1 == 0) {//若Key不一致，则新建一个json对象
+      newJson.push({
+        key: json.key
+      })
+      let len = newJson.length;
+      let key = json.column;
+      let val = json.$;
+      newJson[len - 1][key] = val;
+    }
+  }
+  return newJson;
 }

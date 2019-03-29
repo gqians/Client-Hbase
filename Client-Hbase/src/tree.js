@@ -4,19 +4,6 @@ import scan from './scan.js'
 
 export default function tree(zNodes) {
   let zTreeObj;
-  // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
-  //let setting = {};
-  // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
-  //let zNodes = [
-  //  {
-  //    name: "test1", open: true, children: [
-  //      { name: "test1_1" }, { name: "test1_2" }]
-  //  },
-  //  {
-  //    name: "test2", open: true, children: [
-  //      { name: "test2_1" }, { name: "test2_2" }]
-  //  }
-  //];
   function showlayer() {
     layer.open({
       type: 1 //Page层类型
